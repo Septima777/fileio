@@ -63,7 +63,7 @@ public class FileUtil {
 		int alphabet;
 		try {
 			while ((alphabet = in.read(buffer)) > 0) {
-				out.write(buffer);
+				out.write(buffer,0,alphabet);
 			}
 
 		} catch (IOException e) {
