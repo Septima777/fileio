@@ -30,11 +30,18 @@ public class FileUtil {
 			while ((alphabet = in.read()) > 0) {
 				out.write(alphabet);
 			}
-			in.close();
-			out.close();
 
 		} catch (IOException e) {
-			throw new RuntimeException();
+			throw new RuntimeException(e.getMessage(), e);
+		} finally {
+			try {
+				in.close();
+				out.close();
+
+			} catch (IOException e) {
+
+			}
+
 		}
 
 	}
@@ -58,11 +65,17 @@ public class FileUtil {
 			while ((alphabet = in.read(buffer)) > 0) {
 				out.write(buffer);
 			}
-			in.close();
-			out.close();
 
 		} catch (IOException e) {
-			throw new RuntimeException();
+			throw new RuntimeException(e.getMessage(), e);
+		} finally {
+			try {
+				in.close();
+				out.close();
+
+			} catch (IOException e) {
+
+			}
 		}
 	}
 
@@ -85,12 +98,18 @@ public class FileUtil {
 			while ((line = reader.readLine()) != null) {
 				writer.write(line);
 			}
-			in.close();
-			out.close();
-			reader.close();
-			writer.close();
+
 		} catch (IOException e) {
-			throw new RuntimeException();
+			throw new RuntimeException(e.getMessage(), e);
+		} finally {
+			try {
+				in.close();
+				out.close();
+				reader.close();
+				writer.close();
+			} catch (IOException e) {
+
+			}
 		}
 
 	}
